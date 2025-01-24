@@ -3,6 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\ActivoFijo\Activos\ActivoMobiliario;
+use App\Models\ActivoFijo\Activos\ActivoOficina;
+use App\Models\ActivoFijo\Activos\ActivoPapeleria;
+use App\Models\ActivoFijo\Activos\ActivoSouvenir;
+use App\Models\ActivoFijo\Activos\ActivoTecnologia;
+use App\Models\ActivoFijo\Activos\ActivoUniforme;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -58,4 +65,29 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function activomoviliario()
+    {
+        return $this->belongsToMany(ActivoMobiliario::class);
+    }
+    public function activooficina()
+    {
+        return $this->belongsToMany(ActivoOficina::class);
+    }
+    public function activopapeleria()
+    {
+        return $this->belongsToMany(ActivoPapeleria::class);
+    }
+    public function activosouvenir()
+    {
+        return $this->belongsToMany(ActivoSouvenir::class);
+    }
+    public function activotecnologias()
+    {
+        return $this->belongsToMany(ActivoTecnologia::class);
+    }
+    public function activouniformes()
+    {
+        return $this->belongsToMany(ActivoUniforme::class);
+    }
 }
